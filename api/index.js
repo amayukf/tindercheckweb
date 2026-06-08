@@ -1,14 +1,29 @@
-const fetch = require('node-fetch');
+export const runtime = 'edge';
 
-module.exports = async (req, res) => {
+export default async function handler(req) {
+  const { searchParams } = new URL(req.url);
+  const user = searchParams.get('user');
+  const t = searchParams.get('t');
+  const sign = searchParams.get('sign');
+
   try {
-    const { user, t, sign } = req.query;
     const apiRes = await fetch(`https://tinder6.com/getUser.php?user=${encodeURIComponent(user)}&t=${t}&sign=${sign}`);
     const data = await apiRes.json();
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.status(200).json(data);
+    
+    return new Response(JSON.stringify(data), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Failed to fetch' });
+    return new Response(JSON.stringify({ error: 'Failed to fetch' }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
-};
+}

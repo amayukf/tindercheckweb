@@ -17,32 +17,42 @@ const mimeTypes = {
   '.ico': 'image/x-icon'
 };
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
   console.log(`${req.method} ${req.url}`);
 
   // Handle API proxy requests
   if (req.url.startsWith('/api')) {
     const query = new URL(req.url, `http://localhost:${PORT}`).searchParams;
-    const username = query.get('user');
+    const user = query.get('user');
     const t = query.get('t');
     const sign = query.get('sign');
-    const targetUrl = `https://tinder6.com/getUser.php?user=${encodeURIComponent(username)}&t=${t}&sign=${sign}`;
+    const targetUrl = `https://tinder6.com/getUser.php?user=${encodeURIComponent(user)}&t=${t}&sign=${sign}`;
 
-    https.get(targetUrl, (apiRes) => {
-      let data = '';
-      apiRes.on('data', (chunk) => { data += chunk; });
-      apiRes.on('end', () => {
-        res.writeHead(apiRes.statusCode, {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        });
-        res.end(data);
+    try {
+      const apiRes = await new Promise((resolve, reject) => {
+        https.get(targetUrl, (resp) => {
+          let data = '';
+          resp.on('data', (chunk) => { data += chunk; });
+          resp.on('end', () => {
+            try {
+              resolve(JSON.parse(data));
+            } catch (e) {
+              resolve(data);
+            }
+          });
+        }).on('error', reject);
       });
-    }).on('error', (err) => {
+
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+      res.end(JSON.stringify(apiRes));
+    } catch (err) {
       console.error('API Error:', err);
       res.writeHead(500, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ error: 'Failed to fetch' }));
-    });
+    }
     return;
   }
 

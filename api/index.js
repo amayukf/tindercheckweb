@@ -1,7 +1,8 @@
+const fetch = require('node-fetch');
+
 module.exports = async (req, res) => {
   try {
     const { user, t, sign } = req.query;
-    const fetch = (await import('node-fetch')).default;
     const apiRes = await fetch(`https://tinder6.com/getUser.php?user=${encodeURIComponent(user)}&t=${t}&sign=${sign}`);
     const data = await apiRes.json();
     res.setHeader('Access-Control-Allow-Origin', '*');

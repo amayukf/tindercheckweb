@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinder Account Detection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(-45deg, #ff6b6b, #ffa502, #ee5a24, #ff7675);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            max-width: 700px;
+            width: 100%;
+            padding: 50px 40px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            font-size: 70px;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #444;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 18px 50px 18px 20px;
+            border: 2px solid #e8e8e8;
+            border-radius: 16px;
+            font-size: 16px;
+            background: #fafafa;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.1);
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff6b6b;
+            font-size: 20px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            flex: 1;
+            min-width: 120px;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        #searchBtn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        #searchBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        #searchBtn:active {
+            transform: translateY(-1px);
+        }
+
+        #clearBtn {
+            background: #f0f0f0;
+            color: #555;
+        }
+
+        #clearBtn:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        #confirmBtn {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+        }
+
+        #confirmBtn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.3);
+        }
+
+        #resultsArea {
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .status-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .status-box {
+            padding: 24px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .status-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .status-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .status-value {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .status-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .alive-exists {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            border: 2px solid #8ee4af;
+        }
+
+        .alive-not-exists {
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            color: #721c24;
+            border: 2px solid #ff6b6b;
+        }
+
+        .account-normal {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            border: 2px solid #8ee4af;
+        }
+
+        .account-banned {
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            color: #721c24;
+            border: 2px solid #ff6b6b;
+        }
+
+        .account-default {
+            background: #f8f9fa;
+            color: #666;
+            border: 2px solid #e9ecef;
+        }
+
+        .details-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 24px;
+            margin-bottom: 30px;
+        }
+
+        .details-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .detail-item {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .detail-item label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #999;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-item .value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .photos-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 24px;
+        }
+
+        .photos-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .photo-carousel {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scroll-behavior: smooth;
+        }
+
+        .photo-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .photo-carousel::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .photo-carousel::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border-radius: 4px;
+        }
+
+        .photo-carousel img {
+            height: 180px;
+            width: auto;
+            border-radius: 16px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .photo-carousel img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .no-photos {
+            color: #999;
+            text-align: center;
+            padding: 50px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .contact-section {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 24px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-icon {
+            font-size: 48px;
+            color: white;
+        }
+
+        .contact-content {
+            flex: 1;
+        }
+
+        .contact-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-link {
+            font-size: 18px;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .contact-link:hover {
+            opacity: 0.9;
+            text-decoration: underline;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .status-container {
+                grid-template-columns: 1fr;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.19.0/js/md5.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🔥</div>
+            <h1>Tinder Account Detection</h1>
+            <p class="description">Enter a Tinder username to check if the account exists and get detailed information</p>
+        </div>
+
+        <div class="input-section">
+            <label for="mainUsernameInput">Tinder Username</label>
+            <div class="input-wrapper">
+                <input type="text" id="mainUsernameInput" placeholder="e.g., johndoe123">
+                <i class="fas fa-user input-icon"></i>
+            </div>
+        </div>
+
+        <div class="contact-section">
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fab fa-telegram"></i></div>
+                    <div class="contact-content">
+                        <h3 class="contact-title">Join Our Telegram Channel</h3>
+                        <a href="https://t.me/N_notic" target="_blank" class="contact-link">@N_notic</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon"><i class="fas fa-user-tie"></i></div>
+                    <div class="contact-content">
+                        <h3 class="contact-title">Contact Me to Sell</h3>
+                        <a href="https://t.me/T_ump" target="_blank" class="contact-link">@T_ump</a>
+                    </div>
+                </div>
+            </div>
+
+        <div class="button-group">
+            <button id="searchBtn"><i class="fas fa-search"></i> Start Detection</button>
+            <button id="clearBtn"><i class="fas fa-trash-alt"></i> Clear</button>
+            <button id="confirmBtn"><i class="fas fa-external-link-alt"></i> Official Query</button>
+        </div>
+
+        <div id="resultsArea" class="hidden">
+            <div class="status-container">
+                <div id="aliveStatus" class="status-box account-default">
+                    <div class="status-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>User Status</h3>
+                    <div class="status-value" id="aliveStatusText">—</div>
+                </div>
+                <div id="accountStatus" class="status-box account-default">
+                    <div class="status-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Account Status</h3>
+                    <div class="status-value" id="accountStatusText">—</div>
+                </div>
+            </div>
+            
+            <div class="details-section">
+                <h3 class="details-title"><i class="fas fa-info-circle"></i> Detailed Information</h3>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <label>Name</label>
+                        <div class="value" id="nameInput">—</div>
+                    </div>
+                    <div class="detail-item">
+                        <label>Age</label>
+                        <div class="value" id="ageInput">—</div>
+                    </div>
+                    <div class="detail-item">
+                        <label>Birth Date</label>
+                        <div class="value" id="birthInput">—</div>
+                    </div>
+                    <div class="detail-item">
+                        <label>Registration Date</label>
+                        <div class="value" id="regInput">—</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photos-section">
+                <h3 class="photos-title"><i class="fas fa-camera"></i> User Photos</h3>
+                <div class="photo-carousel" id="photoCarousel">
+                    <div class="no-photos"><i class="fas fa-image"></i> No photos available</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function performQuery(username) {
+            try {
+                const t = Date.now();
+                const sign = md5("asd94" + username + t);
+                const res = await fetch(`/api?user=${encodeURIComponent(username)}&t=${t}&sign=${sign}`);
+                const j = await res.json();
+                return {
+                    username,
+                    alive: j.alive,
+                    accountOk: j.accountOk,
+                    name: j.name,
+                    age: j.age,
+                    birthDate: j.birthDate,
+                    regDate: j.regtime,
+                    photos: j.photos
+                };
+            } catch (err) {
+                console.error(err);
+                throw err;
+            }
+        }
+
+        function clearDetails() {
+            document.getElementById('mainUsernameInput').value = '';
+            document.getElementById('resultsArea').classList.add('hidden');
+        }
+
+        function displayIndividualResult(result) {
+            document.getElementById('resultsArea').classList.remove('hidden');
+
+            const aliveEl = document.getElementById('aliveStatus');
+            const aliveText = document.getElementById('aliveStatusText');
+            if (!result.alive) {
+                aliveEl.className = 'status-box alive-not-exists';
+                aliveText.innerHTML = '<i class="fas fa-times-circle"></i> Username Not Found';
+            } else {
+                aliveEl.className = 'status-box alive-exists';
+                aliveText.innerHTML = '<i class="fas fa-check-circle"></i> Username Exists';
+            }
+
+            const accountEl = document.getElementById('accountStatus');
+            const accountText = document.getElementById('accountStatusText');
+            if (!result.alive) {
+                accountEl.className = 'status-box account-default';
+                accountText.textContent = '—';
+            } else if (result.accountOk) {
+                accountEl.className = 'status-box account-normal';
+                accountText.innerHTML = '<i class="fas fa-thumbs-up"></i> Account Normal';
+            } else {
+                accountEl.className = 'status-box account-banned';
+                accountText.innerHTML = '<i class="fas fa-ban"></i> Account Banned/Throttled';
+            }
+
+            document.getElementById('nameInput').textContent = result.name || '—';
+            document.getElementById('ageInput').textContent = result.age != null ? result.age + ' years' : '—';
+            document.getElementById('birthInput').textContent = result.birthDate || '—';
+            
+            const regInput = document.getElementById('regInput');
+            if (result.regDate) {
+                const today = new Date();
+                const regDate = new Date(result.regDate);
+                const days = Math.floor((today - regDate) / (1000 * 60 * 60 * 24));
+                regInput.textContent = `${result.regDate} (${days} days)`;
+            } else {
+                regInput.textContent = '—';
+            }
+
+            const carousel = document.getElementById('photoCarousel');
+            carousel.innerHTML = '';
+            if (result.photos && result.photos.length > 0) {
+                result.photos.forEach(url => {
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = 'User photo';
+                    img.onclick = () => window.open(url, '_blank');
+                    carousel.appendChild(img);
+                });
+            } else {
+                carousel.innerHTML = '<div class="no-photos"><i class="fas fa-image"></i> No photos available</div>';
+            }
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', async () => {
+            const username = document.getElementById('mainUsernameInput').value.trim();
+            if (!username) {
+                alert('Please enter a username');
+                return;
+            }
+
+            const btn = document.getElementById('searchBtn');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<span class="loading"></span> Detecting...';
+            btn.disabled = true;
+
+            try {
+                const result = await performQuery(username);
+                console.log('Result:', result);
+                displayIndividualResult(result);
+            } catch (err) {
+                console.error(err);
+                alert('Detection failed: ' + (err.message || 'Unknown error'));
+            } finally {
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+            }
+        });
+
+        document.getElementById('clearBtn').addEventListener('click', clearDetails);
+
+        document.getElementById('confirmBtn').addEventListener('click', () => {
+            const username = document.getElementById('mainUsernameInput').value.trim();
+            if (username) {
+                window.open(`https://tinder.com/@${encodeURIComponent(username)}`, '_blank');
+            }
+        });
+
+        // Allow enter key to search
+        document.getElementById('mainUsernameInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                document.getElementById('searchBtn').click();
+            }
+        });
+    </script>
+</body>
+</html>

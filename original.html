@@ -1,0 +1,724 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>åäº_å·¥ä½å®¤ Tinder ç«ç§ æå¼ºæ£æµè´¦å·ç¶æç½ç«</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.19.0/js/md5.min.js"></script>
+
+    <meta name="Description" content="">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/assets/hyper/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
+    <link href="/assets/hyper/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/hyper/css/app-creative.min.css" rel="stylesheet" type="text/css" id="light-style">
+    <link href="/assets/hyper/css/hyper.css?v=88899" rel="stylesheet" type="text/css">
+    <style>
+        @media (min-width: 765px) {
+            .search-order-mobile {
+                display: none;
+            }
+        }
+        .product-box-price {
+            display: inline-block;
+            color: #ff0000;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .invite-table .table td, .table th {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1.5px solid #eef2f7;
+            border-bottom: 1.5px solid #eef2f7;
+        }
+        .invite-table .table th {
+            vertical-align: center !important;
+            border-top: 1px solid #f3f3f3;
+            background: rgb(241 243 250);
+        }
+        .home-card-2 {
+            padding-top: 1rem;
+        }
+        .home-card-2 .card-body {
+            padding: 1rem !important;
+        }
+        .home-card-2 .table {
+            margin-bottom: 0px !important;
+        }
+        .home-card-2 .card-title {
+            border-bottom: 1px solid #f6f6f6;
+            margin-bottom: 0 !important;
+            padding-bottom: 0.5rem;
+        }
+        .logo-title {
+            color: #6f74ff !important;
+        }
+        .header-flex{
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            --blue: #3688fc;
+            --indigo: #727cf5;
+            --purple: #6b5eae;
+            --pink: #ff679b;
+            --red: #fa6767;
+            --orange: #ff9041;
+            --yellow: #f9bc0d;
+            --green: #42d29d;
+            --teal: #02a8b5;
+            --cyan: #44badc;
+            --white: #fff;
+            --gray: #98a6ad;
+            --gray-dark: #343a40;
+            --primary: #3688fc;
+            --secondary: #919ca7;
+            --success: #42d29d;
+            --info: #44badc;
+            --warning: #f9bc0d;
+            --danger: #fa6767;
+            --light: #eef2f7;
+            --dark: #474d56;
+            --breakpoint-xs: 0;
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+            --breakpoint-xl: 1367px;
+            --font-family-sans-serif: "Nunito",sans-serif;
+            --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+            font-family: Nunito,sans-serif;
+            font-size: .9rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #919ca7;
+            text-align: left;
+            box-sizing: border-box;
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1140px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0;
+        }
+        #titleName{
+            font-size: 24px;
+            font-weight: 700;
+            display: inline-block;
+            color: #6f74ff;
+            margin-left: 10px;
+            vertical-align: middle;
+            font-family: "SimHei";
+        }
+    </style>
+
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4CAF50',
+            secondary: '#FF9800'
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '2px',
+            DEFAULT: '4px',
+            'md': '8px',
+            'lg': '12px',
+            'xl': '16px',
+            '2xl': '20px',
+            '3xl': '24px',
+            'full': '9999px',
+            'button': '4px'
+          }
+        }
+      }
+    }
+  </script>
+      <script>
+        var m1="asd999";
+    </script>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.top-0{top:0px}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mr-1{margin-right:0.25rem}.mr-1\.5{margin-right:0.375rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.hidden{display:none}.h-16{height:4rem}.min-h-screen{min-height:100vh}.w-full{width:100%}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.items-center{align-items:center}.justify-between{justify-content:space-between}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.bg-gray-400{--tw-bg-opacity:1;background-color:rgb(156 163 175 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-20{padding-top:5rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-medium{font-weight:500}.text-blue-500{--tw-text-opacity:1;color:rgb(59 130 246 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-indigo-500{--tw-text-opacity:1;color:rgb(99 102 241 / var(--tw-text-opacity, 1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}}</style></head>
+
+<body class="bg-gray-50">
+<div class="header-navbar">
+    <div class="container header-flex" style="max-width: 1140px">
+        <!-- LOGO -->
+        <a href="/" class="topnav-logo" style="float: none; width: 36.5px;height: 36px;">
+            <img src="/assets/common/images/default.jpg" height="36">
+            <div class="logo-title"></div>
+        </a>
+        <div id="titleName">
+            <h1>åäº_å·¥ä½å®¤</h1>
+        </div>
+        <div class="nav-linka" style="margin-left: 53px">
+            <ul class="nav-list">
+                <li class="nav-itema">
+                    <a class="btn btn-outline-primary " href="/">
+                        é¦é¡µ
+                    </a>
+                </li><li class="nav-itema">
+                <a class="btn btn-outline-primary " href="/article">ä½¿ç¨è¯´æ</a>
+            </li>
+                <li class="nav-itema">
+                    <a class="btn btn-outline-primary " href="/article/about">å³äºæä»¬</a>
+                </li>
+                <li class="nav-itema">
+                    <a class="btn btn-outline-primary " href="https://vip.tinder6.com/" target="_blank">Vipå©æ</a>
+                </li>
+
+                <li class="nav-itema">
+                    <a class="btn btn-outline-primary " href="https://tinder6.com/ios.html" target="_blank">åè´¹è¹æID</a>
+                </li>
+
+                <li class="nav-itema">
+                    <a class="btn btn-outline-primary  active  " href="/Tinder_user.html" >Tinder æå¼ºæ£æµ</a>
+                </li>
+                 <li class="nav-itema">
+                    <a class="btn btn-outline-primary " href="https://tinder6.com/cloud-phone" >äºææºåtoken</a>
+                </li>
+            </ul>
+        </div>
+<script>
+        var m2="asd444";
+        var sign = md5(m1+t+m2);
+    </script>
+        <div class="header-right">
+            <a class="btn btn-outline-primary" href="/order-search">
+                <i class="noti-icon uil-file-search-alt search-icon"></i>
+                æ¥è¯¢è®¢å
+            </a>
+            <a class="btn btn-outline-primary" href="/user">
+                <i class="uil uil-user"></i>
+                ç»å½
+            </a>
+        </div>
+    </div>
+</div>
+
+  <!-- æ»ç»æ¨¡ææ¡ -->
+  <div id="summaryModal" class="summary-modal">
+    <div class="summary-modal-content">
+      <div class="title">
+        ð¥ æ¥è¯¢ç»ææ»ç»ï¼5æ¬¡æ¥è¯¢ï¼ð¥
+      </div>
+      <div id="overallStatus" class="overall-status"></div>
+      <div class="table-wrapper">
+        <table id="summaryTable">
+          <thead>
+            <tr>
+              <th>ç¨æ·å</th>
+              <th>ç¨æ·ç¶æ</th>
+              <th>è´¦å·ç¶æ</th>
+              <th>åå­</th>
+              <th>å¹´é¾</th>
+              <th>æ³¨åæ¥æ</th>
+              <th>ç§çæ°</th>
+            </tr>
+          </thead>
+          <tbody id="summaryTableBody">
+            <!-- å¨æå¡«å -->
+          </tbody>
+        </table>
+      </div>
+      <div class="close-button-container">
+        <button class="contact-modal-close" onclick="closeSummaryModal()">å³é­</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ç¬¬äºå±ï¼ä¸ä¸æ¥è¯¢åºå -->
+  <section id="querySection" class="min-h-screen bg-gray-50 pt-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- æ é¢åºå -->
+      <div class="section-title">
+        <h2>
+          <i class="fas fa-search-plus text-purple-600 mr-3"></i>
+          ä¸ä¸æ£æµå·¥å·
+        </h2>
+        <p>
+          è¾å¥Tinderç¨æ·åï¼è·åè¯¦ç»çè´¦å·ç¶æåææ¥å
+        </p>
+<p><span style="font-size: 10pt; color: #e03e2d;">æ¶èç½ç«é²ä½å¤±è Ctrl + D (Windows/Linux)</span></p>
+      </div>
+
+      <!-- ä¸»æ¥è¯¢åºå -->
+      <div class="query-main-container">
+        <div class="query-grid">
+          <!-- å·¦ä¾§ï¼æ¥è¯¢è¡¨å -->
+          <div class="query-form-section">
+            <div class="card-purple query-form-card">
+              <h3 class="form-section-title">
+                <i class="fas fa-user-circle text-purple-600 mr-2"></i>
+                è´¦å·æ£æµ
+              </h3>
+
+              <div class="space-y-4">
+                <div>
+                  <label for="mainUsernameInput" class="block text-sm font-medium text-gray-700 mb-2">
+                    Tinderç¨æ·å
+                  </label>
+                  <input id="mainUsernameInput" type="text" class="form-input" placeholder="è¯·è¾å¥Tinderç¨æ·å">
+                </div>
+
+                <div class="query-button-grid">
+                  <button id="searchBtn" class="btn-primary btn-full-span">
+                    <i class="fas fa-search mr-2"></i>å¼å§æ£æµ
+                  </button>
+                  <button id="clearBtn" class="btn-secondary">
+                    <i class="fas fa-trash mr-1.5"></i>æ¸é¤
+                  </button>
+                  <button id="confirmBtn" class="btn-info">
+                    <i class="fas fa-external-link-alt mr-1.5"></i>å®ç½æ¥è¯¢
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Tinderé£æ ¼æé® - å®å¶è´¦å·æå¡ -->
+            <div class="button-container">
+              <a href="https://tinder6.com/" target="_blank" class="custom-button">
+                <i class="fa-solid fa-fire tinder-icon"></i>
+                <span class="button-text">å¨çç·å¥³ç»¿å¨ç½æä½ä»·25<span class="usdt-icon">ï¿¥</span>èµ·ï¼ç¹å»è´­ä¹°ï¼<i class="fa-brands fa-web-icon"></i></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- å³ä¾§ï¼æ£æµç»æ -->
+          <div class="query-results-section">
+            <div id="resultsSection">
+              <!-- é»è®¤ç¶æ -->
+              <div id="defaultState" class="default-state hidden">
+                <div class="icon-container-gray">
+                  <i class="fas fa-search text-3xl text-gray-400"></i>
+                </div>
+                <h3>ç­å¾æ£æµ</h3>
+                <p>è¯·è¾å¥Tinderç¨æ·åå¹¶ç¹å»"å¼å§æ£æµ"</p>
+              </div>
+
+              <!-- æ£æµç»æåå®¹ -->
+              <div id="resultContent" class="show result-content-reset">
+                <div class="space-y-6">
+                <!-- ç¶ææ¦è§ -->
+                <div class="status-overview-grid">
+                  <div class="card-status-blue">
+                    <h4 class="status-card-title">
+                      <i class="fas fa-user-shield text-blue-600 mr-2"></i>
+                      ç¨æ·ç¶æ
+                    </h4>
+                    <div id="aliveStatus" class="status-tag bg-gray-400">â</div>
+                  </div>
+                  <div class="card-status-green">
+                    <h4 class="status-card-title">
+                      <i class="fas fa-shield-alt text-green-600 mr-2"></i>
+                      è´¦å·ç¶æ
+                    </h4>
+                    <div id="accountStatus" class="status-default">â</div>
+                  </div>
+                </div>
+
+                <!-- è¯¦ç»ä¿¡æ¯ -->
+                <div class="card-white">
+                  <h4 class="detail-section-title">
+                    <i class="fas fa-info-circle text-indigo-600 mr-2"></i>
+                    è¯¦ç»ä¿¡æ¯
+                  </h4>
+                  <div class="detail-info-grid">
+                    <div class="space-y-4">
+                      <div>
+                        <label for="nameInput" class="block text-sm font-medium text-gray-700 mb-1">
+                          <i class="fas fa-id-card text-blue-600 mr-1"></i>å§å
+                        </label>
+                        <input id="nameInput" type="text" class="form-input" readonly="">
+                      </div>
+                      <div>
+                        <label for="ageInput" class="block text-sm font-medium text-gray-700 mb-1">
+                          <i class="fas fa-birthday-cake text-indigo-500 mr-1"></i>å¹´é¾
+                        </label>
+                        <input id="ageInput" type="text" class="form-input" readonly="">
+                      </div>
+                    </div>
+                    <div class="space-y-4">
+                      <div>
+                        <label for="birthInput" class="block text-sm font-medium text-gray-700 mb-1">
+                          <i class="fas fa-gift text-indigo-500 mr-1"></i>åºçæ¥æ
+                        </label>
+                        <input id="birthInput" type="text" class="form-input" readonly="">
+                      </div>
+                      <div>
+                        <label for="regInput" class="block text-sm font-medium text-gray-700 mb-1">
+                          <i class="fas fa-calendar-plus text-blue-500 mr-1"></i>æ³¨åæ¥æ
+                        </label>
+                        <input id="regInput" type="text" class="form-input" readonly="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- ç§çå±ç¤º - ç§»å°ä¸¤ä¸ªè¡¨åä¸æ¹ -->
+        <div class="mt-8" id="photoDisplayContainer">
+          <div id="photoDisplay" class="card-white">
+            <h4 class="detail-section-title">
+              <i class="fas fa-camera text-indigo-600 mr-2"></i>
+              ç¨æ·ç§ç
+            </h4>
+            <div id="photoCarousel" class="photo-carousel">
+              <div class="no-photos"><i class="fas fa-image mr-2"></i>ææ ç§ç</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- å¾çé¢è§æ¨¡ææ¡ -->
+    <div id="imageModal" class="modal" onclick="closeImageModal()">
+      <span class="modal-close">Ã</span>
+      <img class="modal-content" id="modalImage">
+    </div>
+
+  <script>
+    let queryResults = [];
+    const maxQueries = 3;
+
+
+    // éç¨æ¨¡ææ¡æ§å¶å½æ°
+    function toggleModal(modalId, show = true) {
+      const modal = document.getElementById(modalId);
+      modal.classList.toggle("modal-show", show);
+      modal.classList.toggle("modal-hide", !show);
+    }
+
+    function openImageModal(src) {
+      toggleModal("imageModal", true);
+      document.getElementById("modalImage").src = src;
+    }
+    function closeImageModal() { toggleModal("imageModal", false); }
+    function openSummaryModal() { toggleModal("summaryModal"); }
+    function closeSummaryModal() { toggleModal("summaryModal", false); }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // å¯¼èªæ æ»å¨ææ
+      const navbar = document.querySelector('.navbar-glass');
+      let lastScrollY = window.scrollY;
+
+      function updateNavbar() {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+
+        lastScrollY = currentScrollY;
+      }
+
+      // èæµå½æ°ä¼åæ§è½
+      let ticking = false;
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateNavbar);
+          ticking = true;
+          setTimeout(() => { ticking = false; }, 16);
+        }
+      }
+
+      window.addEventListener('scroll', requestTick);
+    });
+
+    function clearDetails() {
+      document.getElementById('mainUsernameInput').value = '';
+      document.getElementById('aliveStatus').textContent = 'â';
+      document.getElementById('aliveStatus').className = 'status-tag bg-gray-400';
+      document.getElementById('accountStatus').textContent = 'â';
+      document.getElementById('accountStatus').className = 'status-default';
+      ['nameInput','ageInput','birthInput','regInput'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      const carousel = document.getElementById('photoCarousel');
+      carousel.innerHTML = '<div class="no-photos"><i class="fas fa-image mr-2"></i>ææ ç§ç</div>';
+      carousel.className = 'photo-carousel';
+    }
+
+    function displayIndividualResult(result) {
+      const aSpan = document.getElementById('aliveStatus');
+      const cSpan = document.getElementById('accountStatus');
+      const carousel = document.getElementById('photoCarousel');
+
+      if (!aSpan || !cSpan || !carousel) {
+        console.error('Required elements not found:', { aSpan, cSpan, carousel });
+        return;
+      }
+
+      carousel.innerHTML = '';
+      if (!result.alive) {
+        aSpan.innerHTML = '<i class="fas fa-circle-xmark mr-1"></i>å®æ¹ç¨æ·åä¸å­å¨ææ­»å·';
+        aSpan.className = 'status-tag bg-red-500';
+        cSpan.textContent = 'â';
+        cSpan.className = 'status-default';
+        ['nameInput','ageInput','birthInput','regInput'].forEach(id => {
+          document.getElementById(id).value = '';
+        });
+        return;
+      }
+      aSpan.innerHTML = '<i class="fas fa-circle-check mr-1"></i>å®æ¹ç¨æ·åå­å¨';
+      aSpan.className = 'status-tag bg-primary';
+      if (result.accountOk) {
+        cSpan.innerHTML = '<i class="fas fa-thumbs-up mr-1"></i>è´¦å·æ­£å¸¸ï¼æ­£å¸¸å¹éï¼';
+        cSpan.className = 'status-normal';
+      } else {
+        cSpan.innerHTML = '<i class="fas fa-ban mr-1"></i>å°ç¦çè´¦å·/éæµï¼æ æ³å¹éï¼';
+        cSpan.className = 'status-banned';
+      }
+      document.getElementById('nameInput').value = result.name || '';
+      document.getElementById('ageInput').value = result.age != null ? result.age + 'å²' : '';
+      document.getElementById('birthInput').value = result.birthDate || '';
+      const regDate = result.regDate || '';
+      if (regDate) {
+        const today = new Date();
+        const registrationDate = new Date(regDate);
+        const timeDiff = today - registrationDate;
+        const daysSince = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const regInput = document.getElementById('regInput');
+
+        // æ¸é¤æææ ·å¼ç±»
+        regInput.className = regInput.className.replace(/reg-date-\w+/g, '').trim() + ' form-input';
+
+        if (daysSince > 365) {
+          regInput.value = `${regDate} (${daysSince}å¤© - è¶è¿ä¸å¹´)`;
+          regInput.classList.add('reg-date-old');
+        } else if (daysSince > 210) {
+          regInput.value = `${regDate} (${daysSince}å¤© - è¶è¿7ä¸ªæ)`;
+          regInput.classList.add('reg-date-very-old');
+        } else if (daysSince > 90) {
+          regInput.value = `${regDate} (${daysSince}å¤© - è¶è¿3ä¸ªæ)`;
+          regInput.classList.add('reg-date-old-medium');
+        } else if (daysSince > 30) {
+          regInput.value = `${regDate} (${daysSince}å¤© - è¶è¿1ä¸ªæ)`;
+          regInput.classList.add('reg-date-medium');
+        } else if (daysSince > 7) {
+          regInput.value = `${regDate} (${daysSince}å¤© - è¶è¿1å¨)`;
+          regInput.classList.add('reg-date-recent');
+        } else {
+          regInput.value = `${regDate} (${daysSince}å¤©)`;
+          regInput.classList.add('reg-date-normal');
+        }
+      } else {
+        document.getElementById('regInput').value = '';
+      }
+      if (result.photos && result.photos.length > 0) {
+        carousel.className = 'photo-banner-container';
+
+        const mainImage = document.createElement('img');
+        mainImage.src = result.photos[0];
+        mainImage.className = 'main-banner-image';
+        mainImage.onclick = () => openImageModal(mainImage.src);
+        carousel.appendChild(mainImage);
+
+        const thumbnailStrip = document.createElement('div');
+        thumbnailStrip.className = 'thumbnail-strip';
+        carousel.appendChild(thumbnailStrip);
+
+        result.photos.forEach((url, index) => {
+          const thumbImg = document.createElement('img');
+          thumbImg.src = url;
+          thumbImg.className = 'thumbnail-image';
+          if (index === 0) {
+            thumbImg.classList.add('active');
+          }
+          thumbImg.onclick = () => {
+            mainImage.src = url;
+            thumbnailStrip.querySelector('.thumbnail-image.active')?.classList.remove('active');
+            thumbImg.classList.add('active');
+          };
+          thumbnailStrip.appendChild(thumbImg);
+        });
+      } else {
+        carousel.innerHTML = '<div class="no-photos"><i class="fas fa-image mr-2"></i>ææ ç§ç</div>';
+        carousel.className = 'photo-carousel';
+      }
+    }
+
+    function displaySummary() {
+      const tbody = document.getElementById('summaryTableBody');
+      const overallStatus = document.getElementById('overallStatus');
+      tbody.innerHTML = '';
+      const hasNormalAccount = queryResults.some(result => result.alive && result.accountOk);
+      overallStatus.innerHTML = hasNormalAccount ?
+        '<span class="text-green-800"><i class="fas fa-thumbs-up mr-1"></i>æ»ä½è´¦å·ç¶æï¼æ­£å¸¸ï¼è´¦å·æ­£å¸¸å¹éï¼</span>' :
+        '<span class="text-red-800"><i class="fas fa-ban mr-1"></i>æ»ä½è´¦å·ç¶æï¼å°ç¦/éæµï¼æ æ­£å¸¸è´¦å·ï¼</span>';
+      queryResults.forEach(result => {
+        const tr = document.createElement('tr');
+        const aliveStatus = result.alive ? 
+          '<span class="status-tag bg-primary"><i class="fas fa-circle-check mr-1"></i>å­å¨</span>' : 
+          '<span class="status-tag bg-red-500"><i class="fas fa-circle-xmark mr-1"></i>ä¸å­å¨</span>';
+        const accountStatus = result.alive ?
+          (result.accountOk ?
+            '<span class="status-normal"><i class="fas fa-thumbs-up mr-1"></i>æ­£å¸¸</span>' :
+            '<span class="status-banned"><i class="fas fa-ban mr-1"></i>å°ç¦/éæµ</span>') :
+          'â';
+        const regDate = result.regDate ? (() => {
+          const today = new Date();
+          const registrationDate = new Date(result.regDate);
+          const timeDiff = today - registrationDate;
+          const daysSince = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+          if (daysSince > 365) return `${result.regDate} (${daysSince}å¤© - è¶è¿ä¸å¹´)`;
+          if (daysSince > 210) return `${result.regDate} (${daysSince}å¤© - è¶è¿7ä¸ªæ)`;
+          if (daysSince > 90) return `${result.regDate} (${daysSince}å¤© - è¶è¿3ä¸ªæ)`;
+          if (daysSince > 30) return `${result.regDate} (${daysSince}å¤© - è¶è¿1ä¸ªæ)`;
+          if (daysSince > 7) return `${result.regDate} (${daysSince}å¤© - è¶è¿1å¨)`;
+          return `${result.regDate} (${daysSince}å¤©)`;
+        })() : 'â';
+        tr.innerHTML = `
+          <td>${result.username}</td>
+          <td>${aliveStatus}</td>
+          <td>${accountStatus}</td>
+          <td>${result.name || 'â'}</td>
+          <td>${result.age != null ? result.age + 'å²' : 'â'}</td>
+          <td>${regDate}</td>
+          <td>${result.photos ? result.photos.length : 0}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+      openSummaryModal();
+    }
+
+    async function performQuery(username) {
+      try {
+          var t=Date.now();
+        //   const params = {
+        //       user: username
+        //   };
+        // {
+        //     method:'POST',
+        //     headers:{
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body:JSON.stringify(params)
+        // }
+        sign=md5("asd94"+username+t);
+        const res = await fetch(`/getUser.php?user=`+username+"&t="+t+"&sign="+sign);
+        const j = await res.json();
+        let result = { username };
+        if (!j.birthDate) {
+          result.alive = false;
+          result.accountOk = false;
+        } else {
+          result.alive = j.alive;
+          result.accountOk = j.accountOk;
+          result.name = j.name;
+          result.age = j.age;
+          result.birthDate = j.birthDate;
+          result.regDate = j.regtime;
+          result.photos = j.photos;
+        }
+        return result;
+      } catch (err) {
+        console.error(err);
+        throw new Error('æ¥è¯¢å¤±è´¥');
+      }
+    }
+
+    // ç¬¬äºå±æç´¢æé® - æ§è¡å®éæ¥è¯¢
+    document.getElementById('searchBtn').addEventListener('click', async () => {
+      const username = document.getElementById('mainUsernameInput').value.trim();
+      if (!username) {
+        alert('è¯·è¾å¥ç¨æ·å');
+        return;
+      }
+
+      const searchBtn = document.getElementById('searchBtn');
+      const originalText = searchBtn.innerHTML;
+
+      // æ¾ç¤ºå è½½ç¶æ
+      searchBtn.innerHTML = '<span class="loading-spinner"></span> æ£æµä¸­...';
+      searchBtn.disabled = true;
+
+      // éèé»è®¤ç¶æï¼æ¾ç¤ºç»æåºååç§çåºå
+      const defaultState = document.getElementById('defaultState');
+      const resultContent = document.getElementById('resultContent');
+      const photoDisplayContainer = document.getElementById('photoDisplayContainer');
+
+      if (defaultState) {
+        defaultState.classList.add('default-state-hide');
+        defaultState.classList.remove('default-state-show');
+      }
+      if (resultContent) {
+        resultContent.classList.remove('hidden');
+        // å·²ç»å¨HTMLä¸­æ·»å äºshowç±»ï¼æ éåæ¬¡æ·»å 
+      }
+      if (photoDisplayContainer) {
+        photoDisplayContainer.classList.remove('hidden');
+      }
+
+      queryResults = [];
+      let accountOKK = 0;
+      let newResult = [];
+      let temp = '';
+      try {
+        // æ§è¡å¤æ¬¡æ¥è¯¢ä»¥ç¡®ä¿ç»æåç¡®æ§
+        for (let i = 0; i < maxQueries; i++) {
+          const result = await performQuery(username);
+          console.log(result);
+          if (result.accountOk) {
+              accountOKK++;
+              temp = result;
+              break;
+          }
+          if (i == 2 && accountOKK == 0) {
+              temp = result;
+          }
+        }
+        //if (accountOKK > 0){
+            for (let ii = 0; ii < maxQueries; ii++) {
+              queryResults.push(temp);
+            }
+            // åªè°ç¨ä¸æ¬¡æ¾ç¤ºç»æ
+            displayIndividualResult(temp);
+        //}
+        //displaySummary();
+      } catch (err) {
+        console.log(err)
+        alert('æ¥è¯¢å¤±è´¥ï¼è¯·ç¨åéè¯');
+      } finally {
+        // æ¢å¤æé®ç¶æ
+        searchBtn.innerHTML = originalText;
+        searchBtn.disabled = false;
+      }
+    });
+
+    // éç¨æé®äºä»¶å¤ç
+    function clearInput(inputId) {
+      document.getElementById(inputId).value = '';
+    }
+
+    function openTinderProfile(inputId) {
+      const username = document.getElementById(inputId).value.trim();
+      if (username) {
+        window.open(`https://tinder.com/@${encodeURIComponent(username)}`, '_blank');
+      }
+    }
+
+    function resetToDefaultState() {
+      clearDetails();
+      queryResults = [];
+    }
+
+    // æé®äºä»¶ç»å®
+    document.getElementById('clearBtn').addEventListener('click', resetToDefaultState);
+    document.getElementById('confirmBtn').addEventListener('click', () => openTinderProfile('mainUsernameInput'));
+  </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"d56b0a19df0f4f5d98f38cb0230d49c7","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>

@@ -47,9 +47,9 @@ const server = http.createServer((req, res) => {
   }
 
   // Serve static files
-  let filePath = '.' + req.url;
-  if (filePath === './') {
-    filePath = './index.html';
+  let filePath = './public' + req.url;
+  if (filePath === './public/') {
+    filePath = './public/index.html';
   }
 
   const extname = String(path.extname(filePath)).toLowerCase();

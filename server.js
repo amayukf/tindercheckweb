@@ -57,9 +57,9 @@ const server = http.createServer(async (req, res) => {
   }
 
   // Serve static files
-  let filePath = './public' + req.url;
-  if (filePath === './public/') {
-    filePath = './public/index.html';
+  let filePath = '.' + req.url;
+  if (filePath === './') {
+    filePath = './index.html';
   }
 
   const extname = String(path.extname(filePath)).toLowerCase();

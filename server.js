@@ -21,7 +21,7 @@ const server = http.createServer(async (req, res) => {
   console.log(`${req.method} ${req.url}`);
 
   // Handle API proxy requests
-  if (req.url.startsWith('/api')) {
+  if (req.url.startsWith('/api') || req.url.startsWith('/.netlify/functions/api')) {
     const query = new URL(req.url, `http://localhost:${PORT}`).searchParams;
     const user = query.get('user');
     const t = query.get('t');
@@ -57,9 +57,9 @@ const server = http.createServer(async (req, res) => {
   }
 
   // Serve static files
-  let filePath = '.' + req.url;
-  if (filePath === './') {
-    filePath = './index.html';
+  let filePath = './public' + req.url;
+  if (filePath === './public/') {
+    filePath = './public/index.html';
   }
 
   const extname = String(path.extname(filePath)).toLowerCase();

@@ -49,7 +49,7 @@ const server = http.createServer((req, res) => {
   // Serve static files
   let filePath = '.' + req.url;
   if (filePath === './') {
-    filePath = './Tinder_user.html';
+    filePath = './index.html';
   }
 
   const extname = String(path.extname(filePath)).toLowerCase();

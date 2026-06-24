@@ -2,12 +2,10 @@ export const runtime = 'edge';
 
 export default async function handler(req) {
   const { searchParams } = new URL(req.url);
-  const user = searchParams.get('user');
-  const t = searchParams.get('t');
-  const sign = searchParams.get('sign');
+  const username = searchParams.get('username') || searchParams.get('user');
 
   try {
-    const apiRes = await fetch(`https://th666.co/?user=${encodeURIComponent(user)}&t=${t}&sign=${sign}`);
+    const apiRes = await fetch(`https://vvip.tinderfz.com/api.php?username=${encodeURIComponent(username)}`);
     const data = await apiRes.json();
     
     return new Response(JSON.stringify(data), {

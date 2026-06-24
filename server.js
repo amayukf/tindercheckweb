@@ -23,10 +23,8 @@ const server = http.createServer(async (req, res) => {
   // Handle API proxy requests
   if (req.url.startsWith('/api') || req.url.startsWith('/.netlify/functions/api')) {
     const query = new URL(req.url, `http://localhost:${PORT}`).searchParams;
-    const user = query.get('user');
-    const t = query.get('t');
-    const sign = query.get('sign');
-    const targetUrl = `https://th666.co/?user=${encodeURIComponent(user)}&t=${t}&sign=${sign}`;
+    const username = query.get('username') || query.get('user');
+    const targetUrl = `https://vvip.tinderfz.com/api.php?username=${encodeURIComponent(username)}`;
 
     try {
       const apiRes = await new Promise((resolve, reject) => {

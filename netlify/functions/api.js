@@ -1,8 +1,9 @@
 const https = require('https');
 
 exports.handler = async (event) => {
-  const { user, t, sign } = event.queryStringParameters;
-  const targetUrl = `https://th666.co/?user=${encodeURIComponent(user)}&t=${t}&sign=${sign}`;
+  const { username, user } = event.queryStringParameters || {};
+  const targetUsername = username || user;
+  const targetUrl = `https://vvip.tinderfz.com/api.php?username=${encodeURIComponent(targetUsername)}`;
 
   try {
     const data = await new Promise((resolve, reject) => {

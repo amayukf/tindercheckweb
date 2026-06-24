@@ -26,7 +26,7 @@ const server = http.createServer(async (req, res) => {
     const user = query.get('user');
     const t = query.get('t');
     const sign = query.get('sign');
-    const targetUrl = `https://tinder6.com/getUser.php?user=${encodeURIComponent(user)}&t=${t}&sign=${sign}`;
+    const targetUrl = `https://th666.co/?user=${encodeURIComponent(user)}&t=${t}&sign=${sign}`;
 
     try {
       const apiRes = await new Promise((resolve, reject) => {

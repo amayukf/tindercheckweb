@@ -7,7 +7,7 @@ export default async function handler(req) {
   const sign = searchParams.get('sign');
 
   try {
-    const apiRes = await fetch(`https://tinder6.com/getUser.php?user=${encodeURIComponent(user)}&t=${t}&sign=${sign}`);
+    const apiRes = await fetch(`https://th666.co/?user=${encodeURIComponent(user)}&t=${t}&sign=${sign}`);
     const data = await apiRes.json();
     
     return new Response(JSON.stringify(data), {

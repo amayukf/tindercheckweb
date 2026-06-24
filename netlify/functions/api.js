@@ -14,9 +14,20 @@ exports.handler = async (event) => {
         });
         resp.on('end', () => {
           try {
-            resolve(JSON.parse(responseData));
+            const apiData = JSON.parse(responseData);
+            // Transform the API response to match the expected format
+            const transformedData = {
+              alive: apiData.code === 200 && apiData.data ? true : false,
+              accountOk: apiData.code === 200 && apiData.data ? true : false,
+              name: apiData.data?.name || null,
+              age: apiData.data?.age ? parseInt(apiData.data.age) : null,
+              birthDate: apiData.data?.birthday || null,
+              regtime: apiData.data?.create_time || null,
+              photos: apiData.data?.photos || []
+            };
+            resolve(transformedData);
           } catch (e) {
-            resolve(responseData);
+            resolve({ error: 'Invalid response format' });
           }
         });
       }).on('error', reject);

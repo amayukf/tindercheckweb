@@ -29,13 +29,24 @@ const server = http.createServer(async (req, res) => {
     try {
       const apiRes = await new Promise((resolve, reject) => {
         https.get(targetUrl, (resp) => {
-          let data = '';
-          resp.on('data', (chunk) => { data += chunk; });
+          let responseData = '';
+          resp.on('data', (chunk) => { responseData += chunk; });
           resp.on('end', () => {
             try {
-              resolve(JSON.parse(data));
-            } catch (e) {
+              const apiData = JSON.parse(responseData);
+              // Transform the API response
+              const data = {
+                alive: apiData.code === 200 && apiData.data ? true : false,
+                accountOk: apiData.code === 200 && apiData.data ? true : false,
+                name: apiData.data?.name || null,
+                age: apiData.data?.age ? parseInt(apiData.data.age) : null,
+                birthDate: apiData.data?.birthday || null,
+                regtime: apiData.data?.create_time || null,
+                photos: apiData.data?.photos || []
+              };
               resolve(data);
+            } catch (e) {
+              resolve({ error: 'Invalid response format' });
             }
           });
         }).on('error', reject);

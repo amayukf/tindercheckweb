@@ -560,9 +560,7 @@
     <script>
         async function performQuery(username) {
             try {
-                const t = Date.now();
-                const sign = md5("asd94" + username + t);
-                const res = await fetch(`/.netlify/functions/api?user=${encodeURIComponent(username)}&t=${t}&sign=${sign}`);
+                const res = await fetch(`/.netlify/functions/api?username=${encodeURIComponent(username)}`);
                 const j = await res.json();
                 return {
                     username,

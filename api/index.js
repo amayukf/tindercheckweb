@@ -6,7 +6,18 @@ export default async function handler(req) {
 
   try {
     const apiRes = await fetch(`https://vvip.tinderfz.com/api.php?username=${encodeURIComponent(username)}`);
-    const data = await apiRes.json();
+    const apiData = await apiRes.json();
+    
+    // Transform the API response to match the expected format
+    const data = {
+      alive: apiData.code === 200 && apiData.data ? true : false,
+      accountOk: apiData.code === 200 && apiData.data ? true : false,
+      name: apiData.data?.name || null,
+      age: apiData.data?.age ? parseInt(apiData.data.age) : null,
+      birthDate: apiData.data?.birthday || null,
+      regtime: apiData.data?.create_time || null,
+      photos: apiData.data?.photos || []
+    };
     
     return new Response(JSON.stringify(data), {
       status: 200,
